@@ -1,0 +1,10 @@
+<h1>Hey rohan</h1>
+<% reservations.forEach(reservation=>{%>
+    <ul>
+        <li><%=reservation.name%></li>
+        <li><%=reservation.contact%></li>
+        <li><%=reservation.table%></li>
+    </ul>
+    <hr>
+<%})%>
+<a href="/new-reservation">New Reservation</a>
