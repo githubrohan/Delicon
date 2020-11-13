@@ -10,8 +10,6 @@ var LocalStrategy = require('passport-local');
 var reservationRouter = require("./routes/reservation");
 var authRouter = require("./routes/auth");
 const User = require('./models/user');
-app.use(reservationRouter);
-app.use(authRouter);
 app.use(require("express-session")({
     secret:"delicon",
     resave:false,
@@ -22,6 +20,13 @@ app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
+app.use((req,res,next)=>{
+    res.locals.currentUser=req.user;
+    next();
+})
+app.use(reservationRouter);
+app.use(authRouter);
 
 mongoose
   .connect(

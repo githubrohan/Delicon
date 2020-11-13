@@ -21,7 +21,7 @@ exports.postNewReservation = (req,res) =>{
     reservation.save()
     .then(result=>{
         console.log("reservation done");
-        res.redirect('/reservations');
+        res.redirect('/');
     })
     .catch(err=>console.log(err));
    
