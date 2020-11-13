@@ -27,13 +27,14 @@ app.use((req,res,next)=>{
 })
 app.use(reservationRouter);
 app.use(authRouter);
+const port = process.env.PORT || "5000";
 
 mongoose
   .connect(
      "mongodb+srv://admin1234:admin1234@cluster0.rrw0t.mongodb.net/delicon?retryWrites=true&w=majority"
   )
   .then((result) => {
-    app.listen(process.env.PORT || 3000, (req, res) => {
+    app.listen(port, (req, res) => {
       console.log("server is running");
     });
   })
