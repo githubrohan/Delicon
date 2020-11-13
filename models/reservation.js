@@ -13,6 +13,11 @@ const reservationSchema=new Schema({
   table:{
     type:Number,
     required:true
+  },
+  feedback:String,
+  date:{
+      type:Date,
+      default:Date.now
   }
   
 });

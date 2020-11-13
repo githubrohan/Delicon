@@ -33,7 +33,7 @@ mongoose
      "mongodb+srv://admin1234:admin1234@cluster0.rrw0t.mongodb.net/delicon?retryWrites=true&w=majority"
   )
   .then((result) => {
-    app.listen(3000, (req, res) => {
+    app.listen(process.env.PORT || 3000, (req, res) => {
       console.log("server is running");
     });
   })

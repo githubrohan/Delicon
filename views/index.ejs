@@ -1,4 +1,83 @@
 <%-include('./partials/header')%>
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="container-fluid mt-3 mb-4">
+
+    <div class="col-lg-12">
+        <div class="row">
+            <div class="col-lg-9 px-0 pr-lg-2 mb-2 mb-lg-0">
+                <div class="card border-light bg-white card proviewcard shadow-sm">
+                    <div class="card-header">Booking List</div>
+                    <div class="card-body">
+                        <%reservations.forEach(reservation=>{%>
+                            <div class="col-lg-12 p-3 cardlist">
+                                <div class="col-lg-12">
+                                    <div class="row">
+                                        <div class="col-lg-8">
+                                            <div class="row">
+                                                <div class="col-4 col-lg-3 col-xl-2">
+                                                    <div class="row">
+                                                        <a href="/" class="w-100">
+                                                            <img src="/images/icon.png" class="mx-auto d-block mb-1 addcartimg">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-8 col-lg-9 col-xl-10">
+                                                    <div class="d-block text-truncate mb-1">
+                                                        <p class="cartproname">Table No : <%=reservation.table%></p>
+                                                    </div>
+                                                    <div class="seller d-block">
+                                                        <span>Customer : </span>
+                                                        <span><%=reservation.name%></span>
+                                                    </div>
+                                                    <div class="seller d-block">
+                                                        <span>Contact : </span>
+                                                        <span><%=reservation.contact%></span>
+                                                    </div>
+                                                    <div class="seller d-block">
+                                                        <span>Feedback : </span>
+                                                        <span><%=reservation.feedback%></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="col-lg-3 ml-lg-auto align-self-start mt-2 mt-lg-0">
+                                            <div class="row">
+                                                <div class="prostatus">
+                                                    <span class="del-time">Booked at <span><%=reservation.date%></span></span>
+                                                </div>
+                                                <div>
+                                                    
+                                                    
+                                                    <a href="/edit-reservation/<%=reservation._id%>" class="addcardrmv"><i class="fa fa-pencil-square fa-lg" aria-hidden="true"> Edit Booking</i></a>
+                                                    <form action="/delete-reservation" method="POST">
+                                                        <input type="hidden" name="reservationId" value="<%=reservation._id%>">
+                                                        <button style="background: none;border: none;" class="addcardrmv"><i class="fa fa-trash fa-lg" aria-hidden="true"> Delete Booking</i> </button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <%})%>
+                        
+                    </div>
+                    <div class="card-footer border-light cart-panel-foo-fix">
+                        <a href="/new-reservation" class="btn btn-cust">New Booking</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <img src="/images/side-img.jpg" alt="side" style="position: fixed; width:20rem; margin-top: 70px;">
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- 
 <h1>Hey rohan</h1>
 <% reservations.forEach(reservation=>{%>
     <ul>
@@ -8,6 +87,6 @@
     </ul>
     <hr>
 <%})%>
-<a href="/new-reservation">New Reservation</a>
+<a href="/new-reservation">New Reservation</a> -->
 
 <%-include('./partials/footer')%>

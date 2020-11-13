@@ -1,5 +1,35 @@
 <%-include('../partials/header')%>
-
-
+<div class="container contact-form">
+    <div class="delicon-logo">
+        <img src="/images/logo.png" alt="delicon-logo"/>
+    </div>
+    <form action="/edit-reservation" method="POST">
+        <h3>Reservation Form</h3>
+       <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input type="hidden" name="reservationId" class="form-control" value="<%=reservation._id%>" />
+                </div>
+                <div class="form-group">
+                    <input type="text" name="name" class="form-control" placeholder="Customer name" value="<%=reservation.name%>" />
+                </div>
+                <div class="form-group">
+                    <input type="text" name="contact" class="form-control" placeholder="Contact" value="<%=reservation.contact%>" />
+                </div>
+                <div class="form-group">
+                    <input type="text" name="table" class="form-control" placeholder="Table number" value="<%=reservation.table%>" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" name="btnSubmit" class="btnContact" value="Book the table" />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <textarea name="feedback" class="form-control" placeholder="Customer feedback..." style="width: 100%; height: 150px;"></textarea>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
 
 <%-include('../partials/footer')%>
